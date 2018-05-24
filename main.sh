@@ -23,8 +23,7 @@ fi
 
 if [[ -z ${WB_CONNECTOME_BIN_DIR} ]]
 then
-	echo "please specify WB_CONNECTOME_BIN_DIR to the dir where the \
-			wb_command is"
+	echo "please specify WB_CONNECTOME_BIN_DIR to the dir where the wb_command is"
 	exit 1
 fi
 
@@ -32,7 +31,14 @@ fi
 ######################################################################################################
 
 if [ "$#" -lt 5 ]; then
-    echo "Illegal number of parameters"
+
+	cat <<USAGE
+
+	Usage:
+	$(basename $0) [output dir] [output basename] [left label.gii] [right label.gii] [resolution]
+
+USAGE
+
     exit 1
 fi
 
