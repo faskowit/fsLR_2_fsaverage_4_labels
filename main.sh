@@ -12,6 +12,9 @@
 ######################################################################################################
 ######################################################################################################
 
+# get the dir where the main is, will need to read path to external data
+wDir=$(dirname "$(readlink -f "$0")")/
+
 if [[ -z ${FREESURFER_HOME} ]]
 then 
 	echo "need FREESURFER to be exported to script"
@@ -72,11 +75,11 @@ do
 
    	currGii=${!hemiGii} 
 
-   	currSphere="./data/external/fs_LR-deformed_to-fsaverage.${hemi}.sphere.${res}k_fs_LR.surf.gii"
-   	newSphere="./data/external/fsaverage_std_sphere.${hemi}.164k_fsavg_${hemi}.surf.gii"
+   	currSphere="${wDir}/data/external/fs_LR-deformed_to-fsaverage.${hemi}.sphere.${res}k_fs_LR.surf.gii"
+   	newSphere="${wDir}/data/external/fsaverage_std_sphere.${hemi}.164k_fsavg_${hemi}.surf.gii"
 
-   	currArea="./data/external/fs_LR.${hemi}.midthickness_va_avg.${res}k_fs_LR.shape.gii"
-   	newArea="./data/external/fsaverage.${hemi}.midthickness_va_avg.164k_fsavg_${hemi}.shape.gii"
+   	currArea="${wDir}/data/external/fs_LR.${hemi}.midthickness_va_avg.${res}k_fs_LR.shape.gii"
+   	newArea="${wDir}/data/external/fsaverage.${hemi}.midthickness_va_avg.164k_fsavg_${hemi}.shape.gii"
 
    	outGii="${outDir}/${outBaseName}_${hemi}_${res}k.label.gii"
 
